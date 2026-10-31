@@ -8,7 +8,7 @@ Interactive English–Khmer quizzes for the 8-week **Digital Marketing for Busin
 
 | Chapter | Topic | Link |
 |---|---|---|
-| 1 | Introduction to Digital Marketing | [Open quiz](https://oupiseyit.github.io/digital-marketing-quiz/Ch1_Quiz.html) |
+| 1 | Introduction to Digital Marketing | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch1_Introduction%20to%20Digital%20Marketing/Ch1_Quiz.html) |
 
 ## How it works
 
