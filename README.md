@@ -9,6 +9,7 @@ Interactive English–Khmer quizzes for the 8-week **Digital Marketing for Busin
 | Chapter | Topic | Link |
 |---|---|---|
 | 1 | Introduction to Digital Marketing | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch1_Introduction%20to%20Digital%20Marketing/Ch1_Quiz.html) |
+| 2 | The Path to Marketing 7.0 | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch2_The%20Path%20to%20Marketing%207.0/Ch2_Quiz.html) |
 
 ## How it works
 
@@ -21,4 +22,4 @@ The quiz is for self-study. The correct answers can be seen in the page source.
 
 ## Source
 
-Questions are based on *Ch1_Introduction to Digital Marketing.pdf* from the course slides.
+Questions are based on the course slides: *Ch1_Introduction to Digital Marketing.pdf* and *Marketing 7.0.pdf* (Kotler, Kartajaya & Setiawan, 2026).
