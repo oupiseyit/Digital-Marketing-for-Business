@@ -1,0 +1,125 @@
+:root {
+  --bg: #f6f4ef;
+  --card: #ffffff;
+  --text: #1d1f24;
+  --muted: #5f6470;
+  --line: #dedad0;
+  --accent: #2f5d8a;
+  --ok: #1e7a46;
+  --ok-bg: #e5f4ea;
+  --bad: #b3261e;
+  --bad-bg: #fbe7e5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171b;
+    --card: #1e2127;
+    --text: #e8e6e1;
+    --muted: #9ba1ad;
+    --line: #333842;
+    --accent: #8cb4dc;
+    --ok: #6fd39a;
+    --ok-bg: #173323;
+    --bad: #f28b82;
+    --bad-bg: #3a1d1b;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0 auto;
+  max-width: 760px;
+  padding: 32px 16px 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 "Kantumruy Pro", system-ui, sans-serif;
+}
+
+header { margin-bottom: 24px; }
+h1 { margin: 4px 0; font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.2; }
+.eyebrow { margin: 0; color: var(--accent); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+.hint { color: var(--muted); font-size: .95rem; }
+.km { display: block; color: var(--muted); font-weight: 400; }
+
+form { counter-reset: score answered; }
+
+fieldset {
+  margin: 0 0 16px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+legend {
+  float: left; /* lets the legend sit inside the card padding */
+  width: 100%;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+legend + * { clear: both; }
+
+.n {
+  display: inline-block;
+  min-width: 2.2em;
+  margin-right: 6px;
+  color: var(--accent);
+}
+
+label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+label:hover { border-color: var(--accent); }
+input { margin-top: .35em; accent-color: var(--accent); }
+
+/* Counting: each checked radio counts as answered; a checked .ok also counts as a point. */
+input:checked { counter-increment: answered; }
+input.ok:checked { counter-increment: answered score; }
+
+/* Once a question is answered: lock it, mark right and wrong, show the Khmer answer. */
+fieldset:has(:checked) label { pointer-events: none; }
+fieldset:has(:checked) label:has(.ok) { border-color: var(--ok); background: var(--ok-bg); }
+fieldset:has(:checked) label:has(.ok)::after { content: "✓"; margin-left: auto; color: var(--ok); font-weight: 700; }
+label:has(input:checked:not(.ok)) { border-color: var(--bad); background: var(--bad-bg); }
+label:has(input:checked:not(.ok))::after { content: "✗"; margin-left: auto; color: var(--bad); font-weight: 700; }
+
+.explain { display: none; margin: 12px 0 0; color: var(--muted); }
+fieldset:has(:checked) .explain { display: block; }
+
+.result {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: center;
+  margin: 0 -16px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+  font-weight: 600;
+}
+.score::after { content: counter(score); color: var(--accent); }
+.answered::after { content: "Answered " counter(answered) " / 30"; color: var(--muted); font-weight: 400; }
+
+button {
+  margin-left: auto;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  font: inherit;
+  cursor: pointer;
+}
+
+footer { padding: 24px 0; color: var(--muted); font-size: .85rem; }
