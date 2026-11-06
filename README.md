@@ -13,10 +13,11 @@ Interactive English–Khmer quizzes for the 8-week **Digital Marketing for Busin
 
 ## Take the quiz
 
-| Chapter | Topic                             | Link                                                                                                                               |
-| ------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 1       | Introduction to Digital Marketing | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch1_Introduction%20to%20Digital%20Marketing/Ch1_Quiz.html) |
-| 2       | The Path to Marketing 7.0         | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch2_The%20Path%20to%20Marketing%207.0/Ch2_Quiz.html)       |
+| Chapter | Topic                                                 | Quiz                                                                                                                               | Q&A handout (English–Khmer)                                                                               |
+| ------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 1       | Introduction to Digital Marketing                     | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch1_Introduction%20to%20Digital%20Marketing/Ch1_Quiz.html) | [Download .docx](Ch1_Introduction%20to%20Digital%20Marketing/Digital_Marketing_Ch1_QA_English_Khmer.docx) |
+| 2       | The Path to Marketing 7.0                             | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch2_The%20Path%20to%20Marketing%207.0/Ch2_Quiz.html)       | [Download .docx](Ch2_The%20Path%20to%20Marketing%207.0/Digital_Marketing_Ch2_QA_English_Khmer.docx)       |
+| 3       | Types of Organizations & Setting Marketing Objectives | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business-/Ch3_Types%20of%20Organizations/Ch3_Quiz.html)              | [Download .docx](Ch3_Types%20of%20Organizations/Digital_Marketing_Ch3_QA_English_Khmer.docx)              |
 
 ## How it works
 
@@ -29,4 +30,16 @@ The quiz is for self-study. The correct answers can be seen in the page source.
 
 ## Source
 
-Questions are based on the course slides: _Ch1_Introduction to Digital Marketing.pdf_ and _Marketing 7.0.pdf_ (Kotler, Kartajaya & Setiawan, 2026).
+Questions are based on the course slides: _Ch1_Introduction to Digital Marketing.pdf_, _Marketing 7.0.pdf_ (Kotler, Kartajaya & Setiawan, 2026), and _Ch3_Types of Organizations.pdf_ (Kotler, Kartajaya & Setiawan, 2021, _Marketing 5.0_; Digital Marketing Institute, 2021).
+
+## Editing this repo
+
+Each chapter has its own folder with its slides, Q&A handout, and `ChN_Quiz.html`. All quizzes share one stylesheet, [`quiz.css`](quiz.css). Pushing to `main` updates the GitHub Pages site automatically.
+
+A pre-commit hook formats staged HTML, CSS, Markdown, and JSON files with Prettier. To turn it on after cloning, run this once:
+
+```bash
+npm install
+```
+
+After that, commit as usual. Use `npx prettier --check .` to see which files need formatting, or `git commit --no-verify` to skip the hook for one commit.
