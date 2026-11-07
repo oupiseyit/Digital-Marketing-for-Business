@@ -26,7 +26,9 @@
   }
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0 auto;
@@ -34,16 +36,41 @@ body {
   padding: 32px 16px 0;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.6 "Kantumruy Pro", system-ui, sans-serif;
+  font:
+    16px/1.6 "Kantumruy Pro",
+    system-ui,
+    sans-serif;
 }
 
-header { margin-bottom: 24px; }
-h1 { margin: 4px 0; font-size: clamp(1.5rem, 5vw, 2.1rem); line-height: 1.2; }
-.eyebrow { margin: 0; color: var(--accent); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
-.hint { color: var(--muted); font-size: .95rem; }
-.km { display: block; color: var(--muted); font-weight: 400; }
+header {
+  margin-bottom: 24px;
+}
+h1 {
+  margin: 4px 0;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  line-height: 1.2;
+}
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.hint {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.km {
+  display: block;
+  color: var(--muted);
+  font-weight: 400;
+}
 
-form { counter-reset: score answered; }
+form {
+  counter-reset: score answered;
+}
 
 fieldset {
   margin: 0 0 16px;
@@ -59,7 +86,9 @@ legend {
   margin-bottom: 12px;
   font-weight: 600;
 }
-legend + * { clear: both; }
+legend + * {
+  clear: both;
+}
 
 .n {
   display: inline-block;
@@ -78,22 +107,55 @@ label {
   border-radius: 8px;
   cursor: pointer;
 }
-label:hover { border-color: var(--accent); }
-input { margin-top: .35em; accent-color: var(--accent); }
+label:hover {
+  border-color: var(--accent);
+}
+input {
+  margin-top: 0.35em;
+  accent-color: var(--accent);
+}
 
 /* Counting: each checked radio counts as answered; a checked .ok also counts as a point. */
-input:checked { counter-increment: answered; }
-input.ok:checked { counter-increment: answered score; }
+input:checked {
+  counter-increment: answered;
+}
+input.ok:checked {
+  counter-increment: answered score;
+}
 
 /* Once a question is answered: lock it, mark right and wrong, show the Khmer answer. */
-fieldset:has(:checked) label { pointer-events: none; }
-fieldset:has(:checked) label:has(.ok) { border-color: var(--ok); background: var(--ok-bg); }
-fieldset:has(:checked) label:has(.ok)::after { content: "✓"; margin-left: auto; color: var(--ok); font-weight: 700; }
-label:has(input:checked:not(.ok)) { border-color: var(--bad); background: var(--bad-bg); }
-label:has(input:checked:not(.ok))::after { content: "✗"; margin-left: auto; color: var(--bad); font-weight: 700; }
+fieldset:has(:checked) label {
+  pointer-events: none;
+}
+fieldset:has(:checked) label:has(.ok) {
+  border-color: var(--ok);
+  background: var(--ok-bg);
+}
+fieldset:has(:checked) label:has(.ok)::after {
+  content: "✓";
+  margin-left: auto;
+  color: var(--ok);
+  font-weight: 700;
+}
+label:has(input:checked:not(.ok)) {
+  border-color: var(--bad);
+  background: var(--bad-bg);
+}
+label:has(input:checked:not(.ok))::after {
+  content: "✗";
+  margin-left: auto;
+  color: var(--bad);
+  font-weight: 700;
+}
 
-.explain { display: none; margin: 12px 0 0; color: var(--muted); }
-fieldset:has(:checked) .explain { display: block; }
+.explain {
+  display: none;
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+fieldset:has(:checked) .explain {
+  display: block;
+}
 
 .result {
   position: sticky;
@@ -108,8 +170,15 @@ fieldset:has(:checked) .explain { display: block; }
   background: var(--bg);
   font-weight: 600;
 }
-.score::after { content: counter(score); color: var(--accent); }
-.answered::after { content: "Answered " counter(answered) " / 30"; color: var(--muted); font-weight: 400; }
+.score::after {
+  content: counter(score);
+  color: var(--accent);
+}
+.answered::after {
+  content: "Answered " counter(answered) " / " var(--total, "30");
+  color: var(--muted);
+  font-weight: 400;
+}
 
 button {
   margin-left: auto;
@@ -122,4 +191,8 @@ button {
   cursor: pointer;
 }
 
-footer { padding: 24px 0; color: var(--muted); font-size: .85rem; }
+footer {
+  padding: 24px 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
