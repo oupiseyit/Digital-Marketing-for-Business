@@ -21,7 +21,7 @@ Interactive English–Khmer quizzes for the 8-week **Digital Marketing for Busin
 
 ## How it works
 
-- 30 multiple-choice questions, shown in English and Khmer.
+- Each chapter quiz has 30 multiple-choice questions, shown in English and Khmer. The Ch1 review quiz adds 20 deeper questions drawn from the Ch1 summary.
 - Pick one answer per question. The question then locks, the correct choice turns green, and the answer appears in English and Khmer.
 - The bar at the bottom shows your score and progress. **Restart** clears every answer.
 - Built with plain HTML and CSS, with no JavaScript. It needs a recent browser (Chrome, Edge, Safari, or Firefox 121+).
@@ -30,11 +30,11 @@ The quiz is for self-study. The correct answers can be seen in the page source.
 
 ## Source
 
-Questions are based on the course slides: _Ch1_Introduction to Digital Marketing.pdf_, _Marketing 7.0.pdf_ (Kotler, Kartajaya & Setiawan, 2026), and _Ch3_Types of Organizations.pdf_ (Kotler, Kartajaya & Setiawan, 2021, _Marketing 5.0_; Digital Marketing Institute, 2021).
+Questions are based on the course slides: _Ch1_Introduction to Digital Marketing.pdf_, _Marketing 7.0.pdf_ (Kotler, Kartajaya & Setiawan, 2026), and _Ch3_Types of Organizations.pdf_ (Kotler, Kartajaya & Setiawan, 2021, _Marketing 5.0_; Digital Marketing Institute, 2021). The Ch1 summary and review quiz are based on _Ch1_Introduction to Digital Marketing.pdf_.
 
 ## Editing this repo
 
-Each chapter has its own folder with its slides, Q&A handout, and `ChN_Quiz.html`. All quizzes share one stylesheet, [`quiz.css`](quiz.css). Pushing to `main` updates the GitHub Pages site automatically.
+Each chapter has its own folder with its slides, Q&A handout, and `ChN_Quiz.html`. Ch1 also has a bilingual summary, a review Q&A handout, and `Ch1_Review_Quiz.html`. All quizzes share one stylesheet, [`quiz.css`](quiz.css). Pushing to `main` updates the GitHub Pages site automatically.
 
 A pre-commit hook formats staged HTML, CSS, Markdown, and JSON files with Prettier. To turn it on after cloning, run this once:
 
