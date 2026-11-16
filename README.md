@@ -34,10 +34,10 @@ Further reading for the course:
 
 Books on marketing strategy (English, with Khmer editions):
 
-| Book                                      | Author(s)                     | Slides      | Summary & Q&A (English–Khmer) | Learn Q&A   | Quiz        |
-| ----------------------------------------- | ----------------------------- | ----------- | ----------------------------- | ----------- | ----------- |
-| _Blue Ocean Shift_ · វិថីសមុទ្រខៀវ (2017) | W. Chan Kim & Renée Mauborgne | Coming soon | Coming soon                   | Coming soon | Coming soon |
-| _Purple Cow_ · គោពណ៌ស្វាយ (2003)          | Seth Godin                    | Coming soon | Coming soon                   | Coming soon | Coming soon |
+| Book                                      | Author(s)                     | Slides      | Summary & Q&A (English–Khmer)                                                                                           | Learn Q&A                                                                                                                               | Quiz                                                                                                               |
+| ----------------------------------------- | ----------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| _Blue Ocean Shift_ · វិថីសមុទ្រខៀវ (2017) | W. Chan Kim & Renée Mauborgne | Coming soon | Coming soon                                                                                                             | Coming soon                                                                                                                             | Coming soon                                                                                                        |
+| _Purple Cow_ · គោពណ៌ស្វាយ (2003)          | Seth Godin                    | —           | Summary: Coming soon<br>Q&A: [Download .docx](Strategy_Purple%20Cow/Digital_Marketing_Purple_Cow_QA_English_Khmer.docx) | [Open Learn Q&A](https://oupiseyit.github.io/Digital-Marketing-for-Business/learn.html?quiz=Strategy_Purple%20Cow/Purple_Cow_Quiz.html) | [Open quiz](https://oupiseyit.github.io/Digital-Marketing-for-Business/Strategy_Purple%20Cow/Purple_Cow_Quiz.html) |
 
 ## How it works
 

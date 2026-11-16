@@ -67,8 +67,8 @@
       }
 
       async function load() {
-        // Only same-site relative quiz pages, e.g. Ch1_x/Ch1_Quiz.html
-        if (!/^[\w .%&-]+\/Ch\d+_[\w]*Quiz\.html$/.test(path))
+        // Only same-site relative quiz pages, e.g. Ch1_x/Ch1_Quiz.html or Strategy_x/Purple_Cow_Quiz.html
+        if (!/^[\w .%&-]+\/\w*Quiz\.html$/.test(path))
           throw new Error("Missing or invalid ?quiz= parameter");
         const res = await fetch(path);
         if (!res.ok) throw new Error(res.status + " " + path);
