@@ -40,6 +40,17 @@ function tagLanguages(fieldset) {
     wrap(nodes.slice(0, i), "en");
     wrap(nodes.slice(i + 1), "km-a");
   }
+  // An option that reads the same in both languages (e.g. "Omni"): show it once, in every mode.
+  for (const en of fieldset.querySelectorAll("label .en")) {
+    const km = en.nextElementSibling;
+    if (
+      km?.classList.contains("km") &&
+      km.textContent.trim() === en.textContent.trim()
+    ) {
+      km.remove();
+      en.classList.remove("en");
+    }
+  }
 }
 
 function setLang(lang) {
