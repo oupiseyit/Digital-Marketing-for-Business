@@ -275,14 +275,16 @@ footer {
   font: inherit;
 }
 
-/* Language modes (quiz.js sets data-lang on <html>). Answer options exist only in English. */
+/* Language modes (quiz.js sets data-lang on <html>). */
 [data-lang="km"] fieldset .en,
-[data-lang="en"] fieldset legend .km,
+[data-lang="en"] fieldset .km,
 [data-lang="en"] fieldset .km-a {
   display: none;
 }
+[data-lang="km"] fieldset .km {
+  color: inherit;
+}
 [data-lang="km"] fieldset legend .km {
   display: inline;
-  color: inherit;
   font-weight: 600;
 }
