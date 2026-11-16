@@ -166,7 +166,7 @@ form:has(.finish-toggle:checked) .explain {
 }
 
 /* "Show results" button: greyed out until every question has an answer, gone once pressed.
-   ponytail: CSS can't truly disable it, so a keyboard user could press it early; add JS if that matters. */
+   quiz.js also disables the checkbox, so keyboard users can't press it early either. */
 .result .answered {
   margin-right: auto;
 }
@@ -182,6 +182,14 @@ form:has(.finish-toggle:checked) .explain {
 }
 .finish:hover {
   border-color: transparent;
+}
+.finish:has(.finish-toggle:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.finish:has(.finish-toggle:disabled) {
+  opacity: 0.45;
+  pointer-events: none;
 }
 .finish-toggle {
   position: absolute;
