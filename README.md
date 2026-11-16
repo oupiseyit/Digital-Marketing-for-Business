@@ -23,10 +23,12 @@ Interactive English–Khmer quizzes for the 8-week **Digital Marketing for Busin
 
 - Each chapter quiz has 30 multiple-choice questions, shown in English and Khmer. The Ch1 review quiz adds 20 deeper questions drawn from the Ch1 summary.
 - Pick one answer per question. You can change your answers until you finish; nothing is marked yet.
-- **Learn Q&A** uses the same questions for study: pick an option and the answer shows right away. Tick **Random questions** or **Random options** to shuffle the order.
+- Above the questions, choose **Language · ភាសា**: English + ខ្មែរ (default), ខ្មែរ only, or English only. This switches the questions and answers; the multiple-choice options are in English only. Your choice is remembered for the other quizzes.
+- Tick **Random questions · សំណួរចៃដន្យ** or **Random options · ជម្រើសចៃដន្យ** to shuffle the order. **Restart** reshuffles.
+- **Learn Q&A** uses the same questions for study: each question is shown with its answer in English and Khmer, without the multiple-choice options. Tick **Random questions** to shuffle the order.
 - The bar at the bottom shows how many questions you've answered. **Show results** becomes available once every question has an answer.
 - Pressing **Show results** locks your answers, shows your score, marks each answer right (green) or wrong (red), and shows the correct answer in English and Khmer. **Restart** clears everything.
-- Quizzes are mostly plain HTML and CSS. A small script only keeps **Show results** locked until every question is answered (Learn Q&A also uses a little JavaScript to load and shuffle questions). It needs a recent browser (Chrome, Edge, Safari, or Firefox 121+).
+- Quizzes are mostly plain HTML and CSS. A small script, `quiz.js`, adds the language and shuffle options and keeps **Show results** locked until every question is answered (Learn Q&A also uses a little JavaScript to load and shuffle the questions). It needs a recent browser (Chrome, Edge, Safari, or Firefox 121+).
 
 The quiz is for self-study. The correct answers can be seen in the page source.
 

@@ -11,53 +11,17 @@
     />
     <link rel="stylesheet" href="quiz.css" />
     <style>
-      /* Learning mode: each question locks and shows its answer as soon as one option is picked. */
-      fieldset:has(:checked) label {
-        pointer-events: none;
-        box-shadow: none;
-      }
-      fieldset:has(:checked) label:has(.ok) {
-        border-color: var(--ok);
-        background: var(--ok-bg);
-      }
-      fieldset:has(:checked) label:has(.ok)::after {
-        content: "✓";
-        margin-left: auto;
-        color: var(--ok);
-        font-weight: 700;
-      }
-      fieldset:has(:checked) label:has(input:checked:not(.ok)) {
-        border-color: var(--bad);
-        background: var(--bad-bg);
-      }
-      fieldset:has(:checked) label:has(input:checked:not(.ok))::after {
-        content: "✗";
-        margin-left: auto;
-        color: var(--bad);
-        font-weight: 700;
-      }
-      fieldset:has(:checked) .explain {
+      /* Study mode: no options, just each question with its answer. */
+      .explain {
         display: block;
       }
-      .options {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-bottom: 16px;
-      }
       .options label {
-        margin: 0;
+        display: inline-flex;
+        margin: 0 0 16px;
         padding: 6px 12px;
       }
       .options input {
         margin-top: 0.3em;
-      }
-      .result .answered {
-        margin-right: auto;
-      }
-      /* quiz.css hides the score until "Show results"; here it is live. */
-      form#quiz .result > span:has(.score) {
-        display: inline;
       }
       a {
         color: var(--accent);
@@ -75,19 +39,9 @@
         ><input type="checkbox" id="shuffle-q" /> Random questions ·
         សំណួរចៃដន្យ</label
       >
-      <label
-        ><input type="checkbox" id="shuffle-o" /> Random options ·
-        ជម្រើសចៃដន្យ</label
-      >
     </div>
 
-    <form id="quiz">
-      <div class="result">
-        <span>Score · ពិន្ទុ <b class="score"></b></span>
-        <span class="answered"></span>
-        <button type="reset">Restart · ចាប់ផ្តើមឡើងវិញ</button>
-      </div>
-    </form>
+    <main id="quiz"></main>
 
     <footer id="foot"></footer>
 
@@ -95,9 +49,7 @@
       // ponytail: reads questions straight from the chapter's quiz page, so the two never drift apart.
       // fetch() needs http(s); opened as file:// it fails — use GitHub Pages or `npx serve`.
       const form = document.getElementById("quiz");
-      const bar = form.querySelector(".result");
       const shuffleQ = document.getElementById("shuffle-q");
-      const shuffleO = document.getElementById("shuffle-o");
       const path = new URLSearchParams(location.search).get("quiz") || "";
       let questions = [];
 
@@ -111,11 +63,7 @@
       };
 
       function arrange() {
-        for (const q of shuffleQ.checked ? shuffled(questions) : questions) {
-          const labels = shuffleO.checked ? shuffled(q.labels) : q.labels;
-          q.el.querySelector(".explain").before(...labels);
-          form.insertBefore(q.el, bar); // bar must stay last for the CSS counters
-        }
+        form.append(...(shuffleQ.checked ? shuffled(questions) : questions));
       }
 
       async function load() {
@@ -135,7 +83,7 @@
           doc.querySelector(".eyebrow").textContent + " · Learning Q&A";
         head.insertAdjacentHTML(
           "beforeend",
-          `<p class="hint">Pick an option to see the answer right away. Prefer a scored test? <a href="${path}">Take the quiz</a>.</p>`
+          `<p class="hint">Each question is shown with its answer. Ready to test yourself? <a href="${path}">Take the quiz</a>.</p>`
         );
         document.title =
           doc.querySelector("title").textContent + " · Learning Q&A";
@@ -144,14 +92,13 @@
 
         questions = [...doc.querySelectorAll("fieldset")].map((f) => {
           const el = document.importNode(f, true);
-          return { el, labels: [...el.querySelectorAll("label")] };
+          el.querySelectorAll("label").forEach((l) => l.remove());
+          return el;
         });
-        form.style.setProperty("--total", `"${questions.length}"`);
         arrange();
       }
 
-      shuffleQ.onchange = shuffleO.onchange = arrange;
-      form.onreset = () => setTimeout(arrange); // reshuffle after the browser clears answers
+      shuffleQ.onchange = arrange;
 
       load().catch((e) => {
         document.querySelector("h1").textContent = "Could not load questions";

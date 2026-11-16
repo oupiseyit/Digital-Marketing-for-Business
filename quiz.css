@@ -249,3 +249,40 @@ footer {
   color: var(--muted);
   font-size: 0.85rem;
 }
+
+/* Toolbar added by quiz.js: language, random questions, random options. */
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.tools label {
+  align-items: center;
+  margin: 0;
+  padding: 6px 12px;
+  background: var(--card);
+}
+.tools input {
+  margin-top: 0;
+}
+.tools select {
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+}
+
+/* Language modes (quiz.js sets data-lang on <html>). Answer options exist only in English. */
+[data-lang="km"] fieldset .en,
+[data-lang="en"] fieldset legend .km,
+[data-lang="en"] fieldset .km-a {
+  display: none;
+}
+[data-lang="km"] fieldset legend .km {
+  display: inline;
+  color: inherit;
+  font-weight: 600;
+}
