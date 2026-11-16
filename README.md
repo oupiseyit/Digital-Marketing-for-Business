@@ -22,8 +22,9 @@ Interactive English–Khmer quizzes for the 8-week **Digital Marketing for Busin
 ## How it works
 
 - Each chapter quiz has 30 multiple-choice questions, shown in English and Khmer. The Ch1 review quiz adds 20 deeper questions drawn from the Ch1 summary.
-- Pick one answer per question. The question then locks, the correct choice turns green, and the answer appears in English and Khmer.
-- The bar at the bottom shows your score and progress. **Restart** clears every answer.
+- Pick one answer per question. You can change your answers until you finish; nothing is marked yet.
+- The bar at the bottom shows how many questions you've answered. **Show results** becomes available once every question has an answer.
+- Pressing **Show results** locks your answers, shows your score, marks each answer right (green) or wrong (red), and shows the correct answer in English and Khmer. **Restart** clears everything.
 - Built with plain HTML and CSS, with no JavaScript. It needs a recent browser (Chrome, Edge, Safari, or Firefox 121+).
 
 The quiz is for self-study. The correct answers can be seen in the page source.

@@ -116,32 +116,40 @@ input {
 }
 
 /* Counting: each checked radio counts as answered; a checked .ok also counts as a point. */
-input:checked {
+input[type="radio"]:checked {
   counter-increment: answered;
 }
 input.ok:checked {
   counter-increment: answered score;
 }
 
-/* Once a question is answered: lock it, mark right and wrong, show the Khmer answer. */
-fieldset:has(:checked) label {
+/* While answering: only highlight the chosen option; answers can still be changed. */
+label:has(input[type="radio"]:checked) {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+/* After "Show results": lock answers, mark right and wrong, show every explanation. */
+form:has(.finish-toggle:checked) fieldset label {
   pointer-events: none;
 }
-fieldset:has(:checked) label:has(.ok) {
+form:has(.finish-toggle:checked) label:has(.ok) {
   border-color: var(--ok);
+  box-shadow: none;
   background: var(--ok-bg);
 }
-fieldset:has(:checked) label:has(.ok)::after {
+form:has(.finish-toggle:checked) label:has(.ok)::after {
   content: "✓";
   margin-left: auto;
   color: var(--ok);
   font-weight: 700;
 }
-label:has(input:checked:not(.ok)) {
+form:has(.finish-toggle:checked) label:has(input:checked:not(.ok)) {
   border-color: var(--bad);
+  box-shadow: none;
   background: var(--bad-bg);
 }
-label:has(input:checked:not(.ok))::after {
+form:has(.finish-toggle:checked) label:has(input:checked:not(.ok))::after {
   content: "✗";
   margin-left: auto;
   color: var(--bad);
@@ -153,8 +161,41 @@ label:has(input:checked:not(.ok))::after {
   margin: 12px 0 0;
   color: var(--muted);
 }
-fieldset:has(:checked) .explain {
+form:has(.finish-toggle:checked) .explain {
   display: block;
+}
+
+/* "Show results" button: greyed out until every question has an answer, gone once pressed.
+   ponytail: CSS can't truly disable it, so a keyboard user could press it early; add JS if that matters. */
+.result .answered {
+  margin-right: auto;
+}
+.result button {
+  margin-left: 0;
+}
+.finish {
+  margin: 0;
+  padding: 8px 14px;
+  border: 0;
+  background: var(--ok);
+  color: var(--bg);
+}
+.finish:hover {
+  border-color: transparent;
+}
+.finish-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+/* :has() can't be nested, so check from any unanswered question forward to the result bar. */
+fieldset:not(:has(:checked)) ~ .result .finish {
+  opacity: 0.45;
+  pointer-events: none;
+}
+form:has(.finish-toggle:checked) .finish,
+form:not(:has(.finish-toggle:checked)) .result > span:has(.score) {
+  display: none;
 }
 
 .result {
@@ -178,6 +219,10 @@ fieldset:has(:checked) .explain {
   content: "Answered " counter(answered) " / " var(--total, "30");
   color: var(--muted);
   font-weight: 400;
+}
+
+form:has(.finish-toggle:checked) .result {
+  font-size: 1.15rem;
 }
 
 button {
